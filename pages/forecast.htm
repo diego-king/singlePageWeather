@@ -1,0 +1,29 @@
+Current Weather for {{city}}
+<hr />
+Cities:
+<span ng-repeat="(key, val) in cities">
+    <a href="#/forecast/{{key}}" ng-class="{'text-success': city === key }">{{key}}</a>|
+</span>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-title">
+                Date: {{toDateStr(result.dt * 1000)}}
+            </div>
+            <div class="panel-body">
+                temperature: {{result.main.temp}} &deg;C<br/>
+                humidity: {{result.main.humidity}}%<br/>
+                Weather:<br/>
+                <ul>
+                <li ng-repeat="w in result.weather">
+                    {{w.description}}
+                </li>
+                </ul>
+            </div>
+            <div>
+                <a href='#' class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
